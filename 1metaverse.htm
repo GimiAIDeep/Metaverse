@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metaverse Explorer | Your Gateway to Virtual Worlds</title>
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --secondary: #9d50bb;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --accent: #ff6b6b;
+            --text: #333;
+            --text-light: #666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=2232&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            animation: fadeIn 2.5s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Metaverse Section */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Components Section */
+        .components {
+            background-color: #f1f1f1;
+        }
+        
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .component-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .component-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .component-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .component-card:hover .component-img img {
+            transform: scale(1.1);
+        }
+        
+        .component-content {
+            padding: 1.5rem;
+        }
+        
+        .component-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .component-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Platforms Section */
+        .platforms-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .platform {
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .platform-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .platform-name {
+            font-weight: 600;
+        }
+        
+        .platform-tooltip {
+            position: absolute;
+            bottom: -40px;
+            background-color: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            width: max-content;
+            max-width: 200px;
+            text-align: center;
+        }
+        
+        .platform:hover .platform-tooltip {
+            bottom: -50px;
+            opacity: 1;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .timeline-content p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background-color: #f1f1f1;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+            background-color: #f9f9f9;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 1.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(110, 72, 170, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            padding: 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            max-height: calc(90vh - 100px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            nav.active {
+                max-height: 300px;
+                margin-top: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon"><i class="fas fa-globe"></i></span>
+                    <span>Metaverse Explorer</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#components">Components</a></li>
+                        <li><a href="#platforms">Platforms</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Explore the Metaverse</h1>
+            <p>Discover the next evolution of the internet - a collective virtual shared space, created by the convergence of virtually enhanced physical and digital reality.</p>
+            <a href="#about" class="btn">Begin Exploration</a>
+        </div>
+    </section>
+
+    <!-- About Metaverse Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>What is the Metaverse?</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The Future of Digital Interaction</h3>
+                    <p>The metaverse is a network of 3D virtual worlds focused on social connection. In futurism and science fiction, it is often described as a hypothetical iteration of the Internet as a single, universal virtual world that is facilitated by the use of virtual and augmented reality headsets.</p>
+                    <p>This persistent online environment will allow users to work, meet, game, and socialize together in these 3D spaces. The metaverse isn't fully in existence, but some platforms contain elements similar to it, like video games that incorporate virtual reality or augmented reality.</p>
+                    <p>Key aspects include persistence (it never resets or pauses), synchronicity (lives in real-time), and interoperability between platforms (digital assets can move between spaces).</p>
+                    <button class="btn" id="watchVideoBtn">Watch Introduction Video</button>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Metaverse Concept">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Section -->
+    <section class="section components" id="components">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Components of the Metaverse</h2>
+            </div>
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-img">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Virtual Reality">
+                    </div>
+                    <div class="component-content">
+                        <h3>Virtual Reality (VR)</h3>
+                        <p>Immersive digital environments that replace the real world, typically accessed through VR headsets that track user movements.</p>
+                        <a href="#" class="read-more" data-modal="vr-modal">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="component-img">
+                        <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Augmented Reality">
+                    </div>
+                    <div class="component-content">
+                        <h3>Augmented Reality (AR)</h3>
+                        <p>Digital overlays on the real world through devices like smartphones or AR glasses, blending physical and digital worlds.</p>
+                        <a href="#" class="read-more" data-modal="ar-modal">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="component-img">
+                        <img src="https://images.unsplash.com/photo-1620288627223-53302f4e8c74?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Blockchain">
+                    </div>
+                    <div class="component-content">
+                        <h3>Blockchain & NFTs</h3>
+                        <p>Decentralized technologies enabling digital ownership, scarcity, and transferability of virtual assets across platforms.</p>
+                        <a href="#" class="read-more" data-modal="blockchain-modal">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="component-img">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Economy">
+                    </div>
+                    <div class="component-content">
+                        <h3>Digital Economy</h3>
+                        <p>A functioning economy where users can create, buy, and sell goods, often with cryptocurrency or digital currencies.</p>
+                        <a href="#" class="read-more" data-modal="economy-modal">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="component-img">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Social Interaction">
+                    </div>
+                    <div class="component-content">
+                        <h3>Social Interaction</h3>
+                        <p>Platforms designed for socializing with digital representations of others (avatars) in shared virtual spaces.</p>
+                        <a href="#" class="read-more" data-modal="social-modal">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="component-img">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Integration">
+                    </div>
+                    <div class="component-content">
+                        <h3>AI Integration</h3>
+                        <p>Artificial intelligence powers NPCs, content generation, personalization, and intelligent environments.</p>
+                        <a href="#" class="read-more" data-modal="ai-modal">Read more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section class="section" id="platforms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Major Metaverse Platforms</h2>
+            </div>
+            <div class="platforms-container">
+                <div class="platform">
+                    <div class="platform-icon"><i class="fab fa-meta"></i></div>
+                    <div class="platform-name">Meta Horizon</div>
+                    <div class="platform-tooltip">Facebook's VR social platform and workplace</div>
+                </div>
+                <div class="platform">
+                    <div class="platform-icon"><i class="fas fa-gamepad"></i></div>
+                    <div class="platform-name">Roblox</div>
+                    <div class="platform-tooltip">User-generated gaming platform with virtual economy</div>
+                </div>
+                <div class="platform">
+                    <div class="platform-icon"><i class="fas fa-cubes"></i></div>
+                    <div class="platform-name">Decentraland</div>
+                    <div class="platform-tooltip">Blockchain-based virtual world with land ownership</div>
+                </div>
+                <div class="platform">
+                    <div class="platform-icon"><i class="fas fa-snowflake"></i></div>
+                    <div class="platform-name">Sandbox</div>
+                    <div class="platform-tooltip">Virtual world where players can build, own, and monetize</div>
+                </div>
+                <div class="platform">
+                    <div class="platform-icon"><i class="fas fa-vr-cardboard"></i></div>
+                    <div class="platform-name">VRChat</div>
+                    <div class="platform-tooltip">Social platform where users interact as 3D avatars</div>
+                </div>
+                <div class="platform">
+                    <div class="platform-icon"><i class="fas fa-building"></i></div>
+                    <div class="platform-name">Microsoft Mesh</div>
+                    <div class="platform-tooltip">Mixed reality platform for collaborative work</div>
+                </div>
+                <div class="platform">
+                    <div class="platform-icon"><i class="fas fa-robot"></i></div>
+                    <div class="platform-name">NVIDIA Omniverse</div>
+                    <div class="platform-tooltip">Platform for 3D simulation and collaboration</div>
+                </div>
+                <div class="platform">
+                    <div class="platform-icon"><i class="fas fa-music"></i></div>
+                    <div class="platform-name">Fortnite</div>
+                    <div class="platform-tooltip">Game evolving into a social metaverse platform</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="section timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Metaverse Evolution Timeline</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">1992</div>
+                        <h3>Term Coined</h3>
+                        <p>Neal Stephenson coins the term "metaverse" in his sci-fi novel "Snow Crash" describing a virtual reality-based successor to the internet.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2003</div>
+                        <h3>Second Life Launches</h3>
+                        <p>Linden Lab's Second Life becomes the first large-scale virtual world with user-generated content and economy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2010</div>
+                        <h3>Oculus Founded</h3>
+                        <p>Palmer Luckey creates the first prototype of the Oculus Rift, reviving interest in VR technology.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2014</div>
+                        <h3>Facebook Acquires Oculus</h3>
+                        <p>Mark Zuckerberg announces Facebook's $2 billion acquisition of Oculus, signaling big tech's interest in VR.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2016</div>
+                        <h3>Pokémon GO</h3>
+                        <p>The AR mobile game becomes a global phenomenon, demonstrating mainstream potential for augmented reality.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020</div>
+                        <h3>Pandemic Acceleration</h3>
+                        <p>COVID-19 lockdowns increase demand for virtual social and work platforms, accelerating metaverse development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021</div>
+                        <h3>Facebook Rebrands to Meta</h3>
+                        <p>Mark Zuckerberg announces Facebook's rebranding to Meta, committing $10 billion to metaverse development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022-2023</div>
+                        <h3>Industry Expansion</h3>
+                        <p>Major tech companies including Microsoft, Apple, and NVIDIA announce metaverse initiatives and products.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Future</div>
+                        <h3>The Full Metaverse</h3>
+                        <p>Projected development of a fully-realized, interoperable metaverse with widespread adoption across industries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the difference between the metaverse and virtual reality?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Virtual reality (VR) is a technology that creates immersive digital environments, while the metaverse is a concept for a persistent, shared virtual space that incorporates VR, AR, and other technologies. Think of VR as a tool that might be used to access parts of the metaverse, similar to how browsers access the internet.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need special equipment to access the metaverse?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, many proto-metaverse platforms can be accessed through standard computers, smartphones, or gaming consoles. For the most immersive experiences, VR headsets or AR glasses are recommended. As the technology develops, more specialized equipment may become standard for full metaverse access.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How is money made in the metaverse?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The metaverse economy includes various monetization methods: selling virtual goods and services, digital real estate transactions, advertising, virtual events, and more. Many platforms use blockchain technology and cryptocurrencies to enable ownership and trade of digital assets.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is the metaverse safe for children?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Like any online space, the metaverse presents both opportunities and risks for children. Parental controls, privacy settings, and supervision are important. Some platforms like Roblox have specific safety features and moderated environments designed for younger users.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Will the metaverse replace the internet?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Most experts believe the metaverse will evolve as an extension of the internet rather than a replacement. It's expected to become a more immersive, 3D layer of the internet where people can interact in ways that aren't possible with today's 2D websites and apps.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How will the metaverse impact jobs and work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The metaverse is expected to create new types of jobs (virtual architects, avatar designers, etc.) while transforming existing ones through virtual offices, training simulations, and remote collaboration tools. Many companies are already experimenting with metaverse workspaces.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Metaverse Explorer</h3>
+                    <p>Your comprehensive guide to understanding and navigating the evolving landscape of the metaverse and virtual worlds.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Metaverse</a></li>
+                        <li><a href="#components">Key Components</a></li>
+                        <li><a href="#platforms">Platforms</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Metaverse News</a></li>
+                        <li><a href="#">VR/AR Guides</a></li>
+                        <li><a href="#">Blockchain Basics</a></li>
+                        <li><a href="#">Digital Assets</a></li>
+                        <li><a href="#">Developer Tools</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest updates on the metaverse.</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Metaverse Explorer. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Introduction to the Metaverse</h3>
+                <button class="close-modal" id="closeVideoModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="padding:56.25% 0 0 0;position:relative;">
+                    <iframe src="https://www.youtube.com/embed/Uvufun6xer8?autoplay=1" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                </div>
+                <p style="margin-top: 1rem;">This video provides a comprehensive overview of what the metaverse is, its key components, and how it's expected to evolve in the coming years.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Component Modals -->
+    <div class="modal" id="vr-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Virtual Reality in the Metaverse</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Virtual Reality" style="width:100%;border-radius:8px;margin-bottom:1rem;">
+                <h4>The Gateway to Immersive Experiences</h4>
+                <p>Virtual Reality (VR) is one of the primary technologies enabling immersive metaverse experiences. VR headsets like Meta Quest, Valve Index, and PlayStation VR transport users into fully digital environments where they can interact with 3D spaces and other users' avatars.</p>
+                <p>Key aspects of VR in the metaverse:</p>
+                <ul style="margin:1rem 0;padding-left:1.5rem;">
+                    <li>Head-mounted displays with high-resolution screens</li>
+                    <li>Motion tracking for natural movement</li>
+                    <li>Hand controllers for interaction</li>
+                    <li>Haptic feedback for tactile sensations</li>
+                    <li>Spatial audio for realistic soundscapes</li>
+                </ul>
+                <p>Current challenges include improving resolution, reducing latency, creating more comfortable hardware, and developing better locomotion systems to prevent motion sickness. Future developments may include neural interfaces for more direct brain-computer interaction.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="ar-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Augmented Reality in the Metaverse</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Augmented Reality" style="width:100%;border-radius:8px;margin-bottom:1rem;">
+                <h4>Blending Digital and Physical Worlds</h4>
+                <p>Augmented Reality (AR) overlays digital information onto the physical world, creating mixed reality experiences. Unlike VR which replaces reality, AR enhances it. This technology is expected to play a crucial role in the metaverse by anchoring digital content to physical locations and objects.</p>
+                <p>Key AR technologies for the metaverse:</p>
+                <ul style="margin:1rem 0;padding-left:1.5rem;">
+                    <li>Smart glasses and headsets (like Microsoft HoloLens)</li>
+                    <li>Smartphone AR (via ARKit and ARCore)</li>
+                    <li>Simultaneous localization and mapping (SLAM)</li>
+                    <li>Object recognition and tracking</li>
+                    <li>Environmental understanding</li>
+                </ul>
+                <p>Future AR glasses aim to be as lightweight as regular eyeglasses while providing high-resolution displays, all-day battery life, and advanced environment mapping. This will enable persistent digital overlays on the physical world that multiple users can see and interact with simultaneously.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="blockchain-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Blockchain & NFTs in the Metaverse</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1620288627223-53302f4e8c74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blockchain" style="width:100%;border-radius:8px;margin-bottom:1rem;">
+                <h4>The Foundation for Digital Ownership</h4>
+                <p>Blockchain technology provides the infrastructure for true digital ownership in the metaverse through cryptocurrencies and non-fungible tokens (NFTs). These technologies enable:</p>
+                <ul style="margin:1rem 0;padding-left:1.5rem;">
+                    <li>Verifiable ownership of digital assets</li>
+                    <li>Scarcity of virtual goods</li>
+                    <li>Interoperability between platforms</li>
+                    <li>Decentralized governance</li>
+                    <li>Player-driven economies</li>
+                </ul>
+                <p>NFTs in the metaverse can represent:</p>
+                <ul style="margin:1rem 0;padding-left:1.5rem;">
+                    <li>Virtual land parcels</li>
+                    <li>Avatar wearables and accessories</li>
+                    <li>Digital art and collectibles</li>
+                    <li>Game items and weapons</li>
+                    <li>Membership passes and tickets</li>
+                </ul>
+                <p>Blockchain also enables decentralized autonomous organizations (DAOs) where metaverse participants can collectively govern shared virtual spaces and make decisions about platform development.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add similar modals for other components (economy-modal, social-modal, ai-modal) -->
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Modal Handling
+        const watchVideoBtn = document.getElementById('watchVideoBtn');
+        const videoModal = document.getElementById('videoModal');
+        const closeVideoModal = document.getElementById('closeVideoModal');
+        
+        watchVideoBtn.addEventListener('click', () => {
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeVideoModal.addEventListener('click', () => {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside content
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Component Modals
+        const readMoreLinks = document.querySelectorAll('.read-more');
+        const modals = document.querySelectorAll('.modal');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        
+        readMoreLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = link.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+        
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Form Submission Handling
+        const contactForm = document.getElementById('contactForm');
+        const newsletterForm = document.getElementById('newsletterForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+        
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            newsletterForm.reset();
+        });
+        
+        // Platform Tooltip Animation
+        const platforms = document.querySelectorAll('.platform');
+        
+        platforms.forEach(platform => {
+            platform.addEventListener('mouseenter', () => {
+                const tooltip = platform.querySelector('.platform-tooltip');
+                tooltip.style.bottom = '-50px';
+                tooltip.style.opacity = '1';
+            });
+            
+            platform.addEventListener('mouseleave', () => {
+                const tooltip = platform.querySelector('.platform-tooltip');
+                tooltip.style.bottom = '-40px';
+                tooltip.style.opacity = '0';
+            });
+        });
+        
+        // Animation on Scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-content, .component-card, .platform, .timeline-item, .faq-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.about-content, .component-card, .platform, .timeline-item, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
